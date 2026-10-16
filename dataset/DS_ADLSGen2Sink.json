@@ -1,0 +1,31 @@
+{
+	"name": "DS_ADLSGen2Sink",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "LS_ADLSgen2Sink",
+			"type": "LinkedServiceReference"
+		},
+		"parameters": {
+			"ds_param_sinkcontainer": {
+				"type": "string"
+			}
+		},
+		"annotations": [],
+		"type": "DelimitedText",
+		"typeProperties": {
+			"location": {
+				"type": "AzureBlobFSLocation",
+				"fileSystem": {
+					"value": "@dataset().ds_param_sinkcontainer",
+					"type": "Expression"
+				}
+			},
+			"columnDelimiter": ",",
+			"escapeChar": "\\",
+			"firstRowAsHeader": true,
+			"quoteChar": "\""
+		},
+		"schema": []
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}
